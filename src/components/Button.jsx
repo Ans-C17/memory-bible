@@ -1,7 +1,7 @@
 function Button({ onClick, display }) {
   return (
     <button
-      className="bg-blue-300 text-white px-6 py-3 rounded-lg font-anek font-medium hover:bg-blue-700 transition-colors"
+      className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:text-white hover:bg-blue-500 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg"
       onClick={onClick}
     >
       {display}
