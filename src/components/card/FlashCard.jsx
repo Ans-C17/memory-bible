@@ -7,11 +7,11 @@ import Rating from "../Rating";
 
 function FlashCard() {
   const [showQuote, setShowQuote] = useState(false);
-  const [showNext, setShowNext] = useState(false);
+  const [showNextButton, setShowNextButton] = useState(false);
 
   const handleFlip = () => setShowQuote(true);
   const handleNext = () => console.log("hey");
-  const handleRating = () => setShowNext(true);
+  const handleRating = () => setShowNextButton(true);
 
   return (
     <div className="h-72 w-11/12 py-6 max-w-sm sm:h-80 sm:max-w-md md:h-96 md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-blue-600 border-8 border-blue-600 outline outline-3 outline-white -outline-offset-16 flex flex-col justify-center items-center text-center">
@@ -24,10 +24,10 @@ function FlashCard() {
       </div>
 
       {showQuote ? (
-        showNext ? (
+        showNextButton ? (
           <Button onClick={handleNext} display="Next" />
         ) : (
-          <Rating />
+          <Rating onRating={handleRating} />
         )
       ) : (
         <Button onClick={handleFlip} display="Reveal" />
