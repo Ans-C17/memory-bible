@@ -7,9 +7,9 @@ function Rating({ onRating }) {
   const [starFill3, setStarFill3] = useState(false);
 
   const handleStarClick = (star) => {
-    if (star == 1) setStarFill1(!starFill1);
-    if (star == 2) setStarFill2(!starFill2);
-    if (star == 3) setStarFill3(!starFill3);
+    if (star == 1) setStarFill1(true);
+    if (star == 2) setStarFill2(true);
+    if (star == 3) setStarFill3(true);
 
     setTimeout(() => {
       onRating();
