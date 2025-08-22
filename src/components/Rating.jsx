@@ -30,7 +30,7 @@ function Rating({ onRating }) {
         size={32}
         stroke={starFill2 ? "none" : "white"}
         strokeWidth={0.5}
-        fill={starFill2 ? "gold" : "none"}
+        fill={starFill2 ? "#ffff00" : "none"}
         onClick={() => handleStarClick(2)}
         className="cursor-pointer hover:scale-110"
       />
