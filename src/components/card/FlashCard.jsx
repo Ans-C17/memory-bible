@@ -2,7 +2,7 @@ import { useState } from "react";
 import verses from "../../data/verses.json";
 import FlashCardFront from "./FlashCardFront";
 import FlashCardBack from "./FlashCardBack";
-import Button from "../Button";
+import FlashCardButton from "../buttons/FlashCardButton";
 import Rating from "../Rating";
 
 //FEATURES TO ADD: RANDOM LIST OF PRAYERS , AND ONE SHOWN BEFORE STARTING TEST AND ONE SHOWN AFTER
@@ -32,12 +32,12 @@ function FlashCard() {
 
       {showQuote ? (
         showNextButton ? (
-          <Button onClick={handleNext} display="Next" />
+          <FlashCardButton onClick={handleNext} display="Next" />
         ) : (
           <Rating onRating={handleRating} />
         )
       ) : (
-        <Button onClick={handleFlip} display="Reveal" />
+        <FlashCardButton onClick={handleFlip} display="Reveal" />
       )}
     </div>
   );

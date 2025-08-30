@@ -11,11 +11,11 @@ function DailyVerse() {
   const verse = verseOfTheDay();
 
   return (
-    <div className="space-x-4">
-      <span className="font-anek text-3xl text-emerald-200 text-center">
+    <div className="space-x-4 space-y-3">
+      <div className="font-anek text-3xl text-emerald-200 text-center">
         {`"${verse.quote}"`}
-      </span>
-      <span className="font-anek text-xl text-yellow-300 text-right">{`${verse.book} ${verse.chapter}:${verse.verse}`}</span>
+      </div>
+      <div className="font-anek text-xl text-yellow-300 text-center">{`${verse.book} ${verse.chapter}:${verse.verse}`}</div>
     </div>
   );
 }
