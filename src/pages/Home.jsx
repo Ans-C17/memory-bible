@@ -1,7 +1,7 @@
 import DailyVerse from "../components/DailyVerse";
 import NormalButton from "../components/buttons/NormalButton";
-import FlashCard from "../components/card/FlashCard";
 import NavBar from "../components/navbar/NavBar";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -13,7 +13,9 @@ function Home() {
         <DailyVerse />
       </div>
       <div className="flex gap-6">
-        <NormalButton onClick={SubmitEvent} display={"Start Test"} />
+        <Link to="/test">
+          <NormalButton display={"Start Test"} />
+        </Link>
         <NormalButton onClick={SubmitEvent} display={"My Verses"} />
       </div>
     </main>

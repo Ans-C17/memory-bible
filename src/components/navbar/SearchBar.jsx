@@ -8,7 +8,7 @@ function SearchBar() {
       </div>
       <input
         type="text"
-        placeholder="Search Verses..."
+        placeholder="Search Verse by Book Chapter : Verse"
         className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 bg-gray-800/80 border border-gray-600 rounded-lg sm:rounded-xl text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-200 min-w-0"
       />
     </div>
