@@ -11,16 +11,20 @@ function NavBar({ showSearch, showProfile }) {
             <Link to="/">MemoryBible</Link>
           </span>
         </div>
-        {showSearch && (
-          <div className="flex-1 flex justify-center">
-            <SearchBar />
-          </div>
-        )}
-        {showProfile && (
-          <div className="flex-1 flex justify-end">
-            <img src={profile} alt="none" className="h-10 w-auto" />
-          </div>
-        )}
+        <div
+          className={`flex-1 flex justify-center ${
+            showSearch ? "" : "invisible"
+          }`}
+        >
+          <SearchBar />
+        </div>
+        <div
+          className={`flex-1 flex justify-end ${
+            showProfile ? "" : "invisible"
+          }`}
+        >
+          <img src={profile} alt="none" className="h-10 w-auto" />
+        </div>
       </div>
     </div>
   );
