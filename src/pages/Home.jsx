@@ -7,7 +7,7 @@ function Home() {
   return (
     <main className="h-screen flex flex-col justify-center items-center bg-cyan-950">
       <div className="w-full flex justify-center items-center">
-        <NavBar />
+        <NavBar showSearch={true} showProfile={true} />
       </div>
       <div className="w-8/12 m-10">
         <DailyVerse />

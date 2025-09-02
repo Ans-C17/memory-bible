@@ -2,7 +2,7 @@ import SearchBar from "./SearchBar";
 import profile from "../../assets/person_2.png";
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ showSearch, showProfile }) {
   return (
     <div className="fixed top-4 left-10 right-10 z-50">
       <div className="flex items-center px-4 py-3 rounded-lg">
@@ -11,12 +11,16 @@ function NavBar() {
             <Link to="/">MemoryBible</Link>
           </span>
         </div>
-        <div className="flex-1 flex justify-center">
-          <SearchBar />
-        </div>
-        <div className="flex-1 flex justify-end">
-          <img src={profile} alt="none" className="h-10 w-auto" />
-        </div>
+        {showSearch && (
+          <div className="flex-1 flex justify-center">
+            <SearchBar />
+          </div>
+        )}
+        {showProfile && (
+          <div className="flex-1 flex justify-end">
+            <img src={profile} alt="none" className="h-10 w-auto" />
+          </div>
+        )}
       </div>
     </div>
   );
