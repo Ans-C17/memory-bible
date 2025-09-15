@@ -3,9 +3,13 @@ import NavBar from "../components/navbar/NavBar";
 import ProgressBar from "../components/card/ProgressBar";
 import verses from "../data/verses.json";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 //controls stuff when the test begins, chumma i cant let users begin testing na
 function Test() {
+  const location = useLocation();
+  const [lang] = useState(location.state.lang);
+
   const [nextIndex, setNextIndex] = useState(0);
 
   function changeIndex(newIndex) {
@@ -19,7 +23,7 @@ function Test() {
       </div>
 
       <div className="w-full flex items-center justify-center">
-        <FlashCard index={nextIndex} onChangeIndex={changeIndex} />
+        <FlashCard index={nextIndex} onChangeIndex={changeIndex} lang={lang} />
       </div>
 
       {/* make this responsive later */}
