@@ -1,11 +1,21 @@
 import express from "express";
+import mongoose from "mongoose";
+import MasterVerses from "./models/masterverses.js";
+import versesRouter from "./routes/verses.js";
+
 const app = express();
-const port = 3000;
+app.use(express.json());
+//a middleware runs during req res cycle. so if a req comes in with a json body, it automatically parses and puts it into req.body
 
-app.get("/", (req, res) => {
-  res.send("hey\n");
-});
+try {
+  await mongoose.connect("mongodb://localhost/bibledb");
+  console.log("Connected to MongoDB");
+} catch (error) {
+  console.log("Connection gone wrong with MongoDB");
+}
 
-app.listen(port, () => {
+app.use("/verses", versesRouter);
+
+app.listen(3000, () => {
   console.log("Server started!");
 });
