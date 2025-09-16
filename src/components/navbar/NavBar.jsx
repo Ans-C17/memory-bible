@@ -2,7 +2,7 @@ import SearchBar from "./SearchBar";
 import profile from "../../assets/person_2.png";
 import { Link } from "react-router-dom";
 
-function NavBar({ showSearch, showProfile }) {
+function NavBar({ showSearch, showProfile, lang }) {
   return (
     <div className="fixed top-4 left-10 right-10 z-50">
       <div className="flex items-center px-4 py-3 rounded-lg">
@@ -16,7 +16,7 @@ function NavBar({ showSearch, showProfile }) {
             showSearch ? "" : "invisible"
           }`}
         >
-          <SearchBar />
+          <SearchBar lang={lang} />
         </div>
         <div
           className={`flex-1 flex justify-end ${

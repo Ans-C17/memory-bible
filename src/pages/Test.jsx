@@ -9,6 +9,7 @@ import { useVerses } from "../contexts/VerseContext";
 //controls stuff when the test begins, chumma i cant let users begin testing na
 function Test() {
   const { verses } = useVerses();
+  //this is not what we should import, we dont need master verses, we need user verses
 
   const location = useLocation();
   const [lang] = useState(location.state.lang);
