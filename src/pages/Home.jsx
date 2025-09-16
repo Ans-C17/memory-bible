@@ -14,7 +14,7 @@ function Home() {
   }
 
   return (
-    <main className="h-screen flex flex-col justify-center items-center bg-cyan-950">
+    <main className="h-screen w-full flex flex-col justify-center items-center bg-cyan-950">
       <div className="w-full flex justify-center items-center">
         <NavBar showSearch={true} showProfile={true} />
       </div>

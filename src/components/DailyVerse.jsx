@@ -1,6 +1,10 @@
-import verses from "../data/verses.json";
+// import verses from "../data/verses.json";
+import { useVerses } from "../contexts/VerseContext";
 
 function DailyVerse({ lang }) {
+  const { verses } = useVerses();
+  if (!verses || verses.length === 0) return <div>Loading...</div>;
+
   function verseOfTheDay() {
     const today = new Date();
     const year = new Date(today.getFullYear(), 0, 0);
