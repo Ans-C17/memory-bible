@@ -20,9 +20,8 @@ function Home() {
 
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-cyan-950">
-      <div className="w-full flex justify-center items-center">
-        <NavBar showSearch={true} showProfile={true} lang={langKeys[lang]} />
-      </div>
+      <NavBar showSearch={true} showProfile={true} lang={langKeys[lang]} />
+
       <div className="w-8/12 m-10 min-h-[150px]">
         <DailyVerse lang={langKeys[lang]} />
       </div>
