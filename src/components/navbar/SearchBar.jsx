@@ -4,11 +4,10 @@ import SearchResultCard from "../SearchResultCard";
 import { useState } from "react";
 
 function SearchBar({ lang }) {
-  // const verses = useVerses().verses.map(
-  //   (verse) => `${verse.book.en.toLowerCase()} ${verse.chapter}:${verse.verse}`
-  // );
-
-  const { verses } = useVerses();
+  const verses = useVerses().verses.map((verse) => ({
+    original: verse,
+    converted: `${verse.book.en.toLowerCase()} ${verse.chapter}:${verse.verse}`,
+  }));
 
   const [searchQuery, setSearchQuery] = useState("");
   const [showCards, setShowCards] = useState(false);
@@ -37,16 +36,12 @@ function SearchBar({ lang }) {
       {/* search results */}
       <div className={`${showCards ? "" : "hidden"}`}>
         {verses
-          .filter(
-            (verse) =>
-              verse.book.en.toLowerCase().startsWith(searchQuery.toLowerCase())
-            // (verse) => verse.startsWith(searchQuery.toLowerCase())
-            // verse.chapter.toString().includes(searchQuery.toLowerCase()) ||
-            // verse.verse.toString().includes(searchQuery.toLowerCase())
+          .filter((verses) =>
+            verses.converted.startsWith(searchQuery.toLowerCase())
           )
           .slice(0, 5)
-          .map((verse) => (
-            <SearchResultCard verse={verse} lang={lang} />
+          .map((verses) => (
+            <SearchResultCard verse={verses.original} lang={lang} />
           ))}
       </div>
     </div>
