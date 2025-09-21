@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useVerses } from "../../contexts/VerseContext";
 // import verses from "../../data/verses.json";
+import Skeleton from "../../Skeleton";
 import FlashCardFront from "./FlashCardFront";
 import FlashCardBack from "./FlashCardBack";
 import FlashCardButton from "../buttons/FlashCardButton";
@@ -8,7 +9,9 @@ import Rating from "./Rating";
 //FEATURES TO ADD: RANDOM LIST OF PRAYERS , AND ONE SHOWN BEFORE STARTING TEST AND ONE SHOWN AFTER
 
 function FlashCard({ index, onChangeIndex, lang }) {
-  const { verses } = useVerses();
+  const { verses, loading } = useVerses();
+  if (loading) return <Skeleton />;
+
   //this is not what we should import, we dont need master verses, we need user verses
 
   const [showQuote, setShowQuote] = useState(false);
