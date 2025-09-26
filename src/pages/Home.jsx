@@ -2,6 +2,7 @@ import DailyVerse from "../components/DailyVerse";
 import NormalButton from "../components/buttons/NormalButton";
 import NavBar from "../components/navbar/NavBar";
 import Skeleton from "../Skeleton";
+import MyVerses from "./MyVerses";
 import { useVerses } from "../contexts/VerseContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -29,7 +30,9 @@ function Home() {
         <Link to="/test" state={{ lang: langKeys[lang] }}>
           <NormalButton display={"Start Test"} />
         </Link>
-        <NormalButton onClick={SubmitEvent} display={"My Verses"} />
+        <Link to="/user-verses">
+          <NormalButton display={"My Verses"} />
+        </Link>
         <NormalButton onClick={changeLang} display={languages[lang]} />
       </div>
     </main>

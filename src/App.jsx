@@ -1,5 +1,6 @@
 import Home from "./pages/Home";
 import Test from "./pages/Test";
+import MyVerses from "./pages/MyVerses";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/test" element={<Test />}></Route>
+        <Route path="/user-verses" element={<MyVerses />}></Route>
+        {/* sub this with the user name and the special query path or whatever */}
       </Routes>
     </div>
   );
