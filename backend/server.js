@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import MasterVerses from "./models/masterverses.js";
 import versesRouter from "./routes/verses.js";
 
 const app = express();
