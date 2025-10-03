@@ -30,7 +30,7 @@ function Home() {
         <Link to="/test" state={{ lang: langKeys[lang] }}>
           <NormalButton display={"Start Test"} />
         </Link>
-        <Link to="/user-verses">
+        <Link to="/user-verses" state={{ lang: langKeys[lang] }}>
           <NormalButton display={"My Verses"} />
         </Link>
         <NormalButton onClick={changeLang} display={languages[lang]} />
