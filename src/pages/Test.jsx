@@ -3,15 +3,18 @@ import NavBar from "../components/navbar/NavBar";
 import ProgressBar from "../components/card/ProgressBar";
 import Skeleton from "../Skeleton";
 // import verses from "../data/verses.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useVerses } from "../contexts/VerseContext";
+import { useUserVerses } from "../contexts/UserVerseContext";
 
 //controls stuff when the test begins, chumma i cant let users begin testing na
-function Test() {
-  const { verses, loading } = useVerses();
+function Test({ user, setUser }) {
+  const { userVerses, loading, fetchVerses } = useUserVerses();
+  useEffect(() => {
+    if (user?._id) fetchVerses(user._id);
+  }, [user?._id]);
+
   if (loading) return <Skeleton />;
-  //this is not what we should import, we dont need master verses, we need user verses
 
   const location = useLocation();
   const [lang] = useState(location.state.lang);
@@ -34,7 +37,7 @@ function Test() {
 
       {/* make this responsive later */}
       <div className="w-96 absolute bottom-20">
-        <ProgressBar progress={(nextIndex / verses.length) * 100} />
+        <ProgressBar progress={(nextIndex / userVerses.length) * 100} />
       </div>
     </main>
   );

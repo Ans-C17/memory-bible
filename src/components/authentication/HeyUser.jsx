@@ -1,8 +1,8 @@
 function HeyUser({ user, onLogout }) {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-7">
       <h1 className="text-3xl text-emerald-200 font-anek text-center">
-        👋 Hello {user.name}!👋
+        👋 Hello {user.name}!
       </h1>
       <p className="text-xl text-white font-anek italic text-center">
         "May the spirit guide you"

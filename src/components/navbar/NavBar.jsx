@@ -4,8 +4,7 @@ import AuthRender from "../authentication/AuthRender";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function NavBar({ showSearch, showProfile, lang }) {
-  const [user, setUser] = useState(null);
+function NavBar({ showSearch, showProfile, lang, user, setUser }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
@@ -21,7 +20,7 @@ function NavBar({ showSearch, showProfile, lang }) {
             showSearch ? "" : "invisible"
           }`}
         >
-          <SearchBar lang={lang} />
+          <SearchBar lang={lang} user={user} />
         </div>
         <div
           className={`flex-1 flex justify-end ${

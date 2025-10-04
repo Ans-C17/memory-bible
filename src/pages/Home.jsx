@@ -7,7 +7,7 @@ import { useVerses } from "../contexts/VerseContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home({ user, setUser }) {
   const { loading } = useVerses();
   if (loading) return <Skeleton />;
 
@@ -21,7 +21,13 @@ function Home() {
 
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-cyan-950">
-      <NavBar showSearch={true} showProfile={true} lang={langKeys[lang]} />
+      <NavBar
+        showSearch={true}
+        showProfile={true}
+        lang={langKeys[lang]}
+        user={user}
+        setUser={setUser}
+      />
 
       <div className="w-8/12 m-10 min-h-[150px]">
         <DailyVerse lang={langKeys[lang]} />

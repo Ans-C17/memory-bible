@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 
-function SearchResultCard({ verse, lang }) {
+function SearchResultCard({ verse, lang, user }) {
   return (
     <div
       className="w-full relative my-3 p-4 rounded-2xl 
@@ -14,7 +14,12 @@ function SearchResultCard({ verse, lang }) {
             {verse.quote[lang]}
           </span>
         </div>
-        <button className="bg-emerald-200 rounded-sm my-auto p-1 hover:bg-emerald-300 hover:scale-110 transition-all">
+        <button
+          onClick={() => {
+            console.log(verse.id);
+          }}
+          className="bg-emerald-200 rounded-sm my-auto p-1 hover:bg-emerald-300 hover:scale-110 transition-all"
+        >
           <Plus size={36} color="#062c33" />
         </button>
       </div>

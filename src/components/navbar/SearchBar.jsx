@@ -3,7 +3,7 @@ import { useVerses } from "../../contexts/VerseContext";
 import SearchResultCard from "../SearchResultCard";
 import { useState } from "react";
 
-function SearchBar({ lang }) {
+function SearchBar({ lang, user }) {
   const verses = useVerses().verses.map((verse) => ({
     original: verse,
     converted: `${verse.book.en.toLowerCase()} ${verse.chapter}:${verse.verse}`,
@@ -41,7 +41,7 @@ function SearchBar({ lang }) {
           )
           .slice(0, 5)
           .map((verses) => (
-            <SearchResultCard verse={verses.original} lang={lang} />
+            <SearchResultCard verse={verses.original} lang={lang} user={user} />
           ))}
       </div>
     </div>
