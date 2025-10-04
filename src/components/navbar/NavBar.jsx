@@ -1,8 +1,12 @@
 import SearchBar from "./SearchBar";
-import profile from "../../assets/person_2.png";
+import usericon from "../../assets/usericon2.svg";
+import AuthRender from "../authentication/AuthRender";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function NavBar({ showSearch, showProfile, lang }) {
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
   return (
     <div className="fixed top-4 left-10 right-10 z-50">
       <div className="flex items-start px-4 py-3 rounded-lg">
@@ -23,7 +27,15 @@ function NavBar({ showSearch, showProfile, lang }) {
             showProfile ? "" : "invisible"
           }`}
         >
-          <img src={profile} alt="none" className="h-10 w-auto" />
+          <div className="relative">
+            <img
+              src={usericon}
+              alt="none"
+              onClick={() => setShowUserMenu(!showUserMenu)}
+              className="size-8 cursor-pointer hover:brightness-150"
+            />
+            {showUserMenu && <AuthRender />}
+          </div>
         </div>
       </div>
     </div>
