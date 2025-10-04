@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function NavBar({ showSearch, showProfile, lang }) {
+  const [user, setUser] = useState(null);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   return (
@@ -34,7 +35,7 @@ function NavBar({ showSearch, showProfile, lang }) {
               onClick={() => setShowUserMenu(!showUserMenu)}
               className="size-8 cursor-pointer hover:brightness-150"
             />
-            {showUserMenu && <AuthRender />}
+            {showUserMenu && <AuthRender user={user} setUser={setUser} />}
           </div>
         </div>
       </div>

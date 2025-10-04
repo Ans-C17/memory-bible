@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import versesRouter from "./routes/verses.js";
+import usersRouter from "./routes/auth.js";
 
 const app = express();
 app.use(cors()); //lets cross origin requests accepting
@@ -16,6 +17,7 @@ try {
 }
 
 app.use("/verses", versesRouter);
+app.use("/auth", usersRouter);
 
 app.listen(3000, () => {
   console.log("Server started!");

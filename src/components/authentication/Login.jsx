@@ -1,5 +1,20 @@
-function Login() {
-  function handleSubmit() {}
+function Login({ setUser }) {
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) alert(data.error);
+    else setUser(data);
+  }
 
   return (
     <form
@@ -18,7 +33,7 @@ function Login() {
       />
       <button
         type="submit"
-        className="rounded-3xl border-2 border-emerald-300 px-6 py-2 text-emerald-800 text-lg bg-emerald-300 font-anek hover:scale-105 transition-all"
+        className="rounded-3xl cursor-pointer border-2 border-emerald-300 px-6 py-2 text-emerald-800 text-lg bg-emerald-300 font-anek hover:scale-105 transition-all"
       >
         Log In
       </button>
