@@ -48,9 +48,11 @@ function Test({ user, setUser }) {
                 lang={lang}
                 user={user}
                 setUser={setUser}
+                userVerses={userVerses}
               />
             </div>
           )}
+
           <div className="w-96 absolute bottom-20">
             <ProgressBar progress={(nextIndex / userVerses.length) * 100} />
           </div>

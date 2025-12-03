@@ -9,16 +9,16 @@ import Rating from "./Rating";
 import userverses from "../../../backend/models/userverses";
 //FEATURES TO ADD: RANDOM LIST OF PRAYERS , AND ONE SHOWN BEFORE STARTING TEST AND ONE SHOWN AFTER
 
-function FlashCard({ index, onChangeIndex, lang, user, setUser }) {
+function FlashCard({ index, onChangeIndex, lang, user, setUser, userVerses }) {
   const [showQuote, setShowQuote] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
 
-  const { userVerses, loading, fetchVerses } = useUserVerses();
-  useEffect(() => {
-    if (user) fetchVerses(user.userId);
-  }, [user]);
+  // const { userVerses, loading, fetchVerses } = useUserVerses();
+  // useEffect(() => {
+  //   if (user) fetchVerses(user.userId);
+  // }, [user]);
 
-  if (loading) return <Skeleton />;
+  // if (loading) return <Skeleton />;
 
   const handleFlip = () => setShowQuote(true);
   const handleRating = () => setShowNextButton(true);
