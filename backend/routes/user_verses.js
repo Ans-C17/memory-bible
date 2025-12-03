@@ -1,7 +1,18 @@
 import express from "express";
 import UserVerses from "../models/userverses.js";
+import userverses from "../models/userverses.js";
 
 const router = express.Router();
+
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
 
 router.post("/", async (req, res) => {
   try {
@@ -29,7 +40,9 @@ router.get("/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
     const verses = await UserVerses.find({ userId }).populate("verseId");
-    res.status(200).json(verses);
+    const shuffledVerses = shuffleArray(verses);
+    //send this thru the sm2 alg and return the real array i think.
+    res.status(200).json(shuffledVerses);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
