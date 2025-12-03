@@ -1,6 +1,9 @@
 import { Plus } from "lucide-react";
+import { useUserVerses } from "../contexts/UserVerseContext";
 
 function SearchResultCard({ verse, lang, user }) {
+  const { userVerses, loading, addVerse } = useUserVerses();
+
   return (
     <div
       className="w-full relative my-3 p-4 rounded-2xl 
@@ -16,7 +19,8 @@ function SearchResultCard({ verse, lang, user }) {
         </div>
         <button
           onClick={() => {
-            console.log(verse.id);
+            addVerse(user.userId, verse._id);
+            if (user) console.log(user.userId);
           }}
           className="bg-emerald-200 rounded-sm my-auto p-1 hover:bg-emerald-300 hover:scale-110 transition-all"
         >

@@ -8,13 +8,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Home({ user, setUser }) {
+  const [lang, setLang] = useState(0);
+
   const { loading } = useVerses();
   if (loading) return <Skeleton />;
+
+  // console.log(user);
 
   const languages = ["English", "Malayalam"];
   const langKeys = ["en", "ml"];
 
-  const [lang, setLang] = useState(0);
   function changeLang() {
     setLang(lang == 0 ? 1 : 0);
   }

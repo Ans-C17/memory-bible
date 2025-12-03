@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function NavBar({ showSearch, showProfile, lang, user, setUser }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
+  // console.log(user.userId);
 
   return (
     <div className="fixed top-4 left-10 right-10 z-50">

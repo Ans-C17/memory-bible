@@ -8,11 +8,15 @@ export function UserVerseProvider({ children }) {
 
   async function fetchVerses(userId) {
     if (!userId) return;
+
     setLoading(true);
 
     try {
+      console.log("im inside the try block");
       const res = await fetch(`http://localhost:3000/userverses/${userId}`);
       const data = await res.json();
+      if (data) console.log(data);
+      else console.log("onum kiteela");
       setUserVerses(data);
     } catch (error) {
       console.log(error.message);
@@ -23,13 +27,15 @@ export function UserVerseProvider({ children }) {
 
   async function addVerse(userId, verseId) {
     try {
-      const res = await fetch(`http://localhost:3000/userverses/`, {
+      const res = await fetch(`http://localhost:3000/userverses`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, verseId }),
       });
 
       const data = await res.json();
+
+      // console.log(userId, verseId);
 
       if (res.ok) {
         fetchVerses(userId); //refresh the list

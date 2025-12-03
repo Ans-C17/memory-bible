@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import versesRouter from "./routes/verses.js";
 import usersRouter from "./routes/auth.js";
-import userVersesRouter from "./models/userverses.js";
+import userVersesRouter from "./routes/user_verses.js";
 
 const app = express();
 app.use(cors()); //lets cross origin requests accepting
