@@ -18,7 +18,10 @@ function App() {
           path="/test"
           element={<Test user={user} setUser={setUser} />}
         ></Route>
-        <Route path="/user-verses" element={<MyVerses />}></Route>
+        <Route
+          path="/user-verses"
+          element={<MyVerses user={user} setUser={setUser} />}
+        ></Route>
         {/* sub this with the user name and the special query path or whatever */}
       </Routes>
     </div>
